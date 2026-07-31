@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: live probe of https://molekule.com/.well-known/*
+host: https://molekule.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: molekule-openid-configuration.json
+  note: OIDC discovery for the Shopify Customer Account API (issuer shopify.com/authentication/70884294938)
+- path: /.well-known/ucp
+  status: 200
+  file: molekule-ucp.json
+  note: Universal Commerce Protocol (UCP) merchant profile — versions, service endpoints, capabilities, payment handlers
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

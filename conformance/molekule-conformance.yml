@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://molekule.com/.well-known/openid-configuration,
+  https://molekule.com/.well-known/ucp, https://molekule.com/llms.txt
+description: >-
+  Cross-cutting standards the Molekule storefront's agent-commerce surface
+  conforms to, evidenced by its published discovery documents.
+standards:
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration published (Shopify Customer Account API)
+- id: oauth2
+  conforms: true
+  evidence: authorization_code + refresh_token grants, PKCE (S256) in OIDC discovery
+- id: pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256
+- id: mcp
+  conforms: true
+  evidence: live Model Context Protocol endpoint at /api/ucp/mcp (JSON-RPC 2.0)
+- id: ucp
+  conforms: true
+  evidence: Universal Commerce Protocol 2026-04-08 + 2026-01-23 profile at /.well-known/ucp
+- id: llmstxt
+  conforms: true
+  evidence: /llms.txt and /agents.md agent-instruction documents published
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404
+- id: rfc8414-oauth-authorization-server
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returned 404 (OIDC discovery used instead)

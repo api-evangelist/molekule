@@ -1,0 +1,56 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://molekule.com/.well-known/ucp
+description: >-
+  Molekule's storefront (a Shopify-hosted store) exposes a live agent-commerce
+  MCP endpoint implementing the Universal Commerce Protocol (UCP). Agents
+  discover capabilities via GET /.well-known/ucp, then call the MCP endpoint to
+  search the catalog, build a cart, and drive a buyer-approved checkout. Checkout
+  requires explicit human approval at the moment of payment.
+server:
+  name: molekule-ucp
+  transport: http
+  protocol: mcp
+  url: https://molekule.com/api/ucp/mcp
+  canonical_endpoint: https://molekule-ecommerce.myshopify.com/api/ucp/mcp
+  content_type: application/json
+  discovery: https://molekule.com/.well-known/ucp
+  ucp_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  auth: >-
+    Public discovery is unauthenticated; transacting requires a UCP agent
+    profile URI (tools/list returns invalid_profile_url without one). Buyer
+    identity uses the Shopify Customer Account API (OIDC).
+  rate_limited: true
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+payment_handlers:
+- com.google.pay
+- dev.shopify.card
+- dev.shopify.shop_pay
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent
+  source: https://ucp.dev/2026-04-08/schemas/shopping/catalog_search.json
+- name: create_cart
+  description: Add desired items to a cart
+  source: https://ucp.dev/2026-04-08/schemas/shopping/cart.json
+- name: create_checkout
+  description: Start the purchase flow
+  source: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json
+- name: update_checkout
+  description: Set shipping address and method
+  source: https://ucp.dev/2026-04-08/schemas/shopping/fulfillment.json
+- name: complete_checkout
+  description: Finalize the purchase (buyer must approve payment)
+  source: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json

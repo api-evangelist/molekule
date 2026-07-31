@@ -1,0 +1,15 @@
+generated: '2026-07-20'
+method: searched
+source: https://molekule.com/agents.md
+description: >-
+  Provider-published agent instructions for the Molekule storefront, saved
+  verbatim. Molekule (a Shopify store) publishes /agents.md (mirrored at
+  /llms.txt) describing how AI shopping agents discover, browse, and complete
+  buyer-approved purchases via the Universal Commerce Protocol MCP endpoint.
+skills:
+- file: molekule-agents.md
+  name: Shop the Molekule store as an AI agent
+  provider_published: true
+  source: https://molekule.com/agents.md
+  surface: UCP MCP (https://molekule.com/api/ucp/mcp)
+  flow: discover -> search_catalog -> create_cart -> create_checkout -> update_checkout -> complete_checkout

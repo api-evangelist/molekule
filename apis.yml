@@ -1,23 +1,73 @@
 aid: molekule
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/molekule.png
 name: Molekule
-description: 'Molekule is a company surfaced as a portfolio company of foundry-group, susa-ventures and
-  added to the API Evangelist network as a stub for enrichment. Sector: hardware. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: >-
+  Molekule is a consumer air-quality hardware company that makes FDA-cleared
+  HEPA air purifiers for homes and businesses. It sells direct-to-consumer
+  through molekule.com, a Shopify-hosted storefront. While Molekule does not
+  publish a traditional developer API, its store exposes a live agent-commerce
+  surface: a Universal Commerce Protocol (UCP) merchant profile at
+  /.well-known/ucp, a Model Context Protocol (MCP) endpoint at /api/ucp/mcp for
+  AI shopping agents, OpenID Connect buyer authentication via the Shopify
+  Customer Account API, and published agent instructions at /agents.md and
+  /llms.txt. This profile captures that machine-readable commerce surface for
+  the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/molekule/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - foundry-group
 - susa-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: agent-commerce-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Hardware
-apis: []
+- Air Quality
+- Consumer IoT
+- E-Commerce
+- Agent Commerce
+- MCP
+- Shopify
+apis:
+- name: Molekule Agent Commerce (UCP / MCP)
+  description: >-
+    Agent-driven commerce surface for the Molekule storefront implementing the
+    Universal Commerce Protocol over MCP. Agents discover capabilities at
+    /.well-known/ucp, then search the catalog, build a cart, and drive a
+    buyer-approved checkout via the MCP endpoint. Buyer identity uses the
+    Shopify Customer Account API (OIDC).
+  humanURL: https://molekule.com/agents.md
+  baseURL: https://molekule.com/api/ucp/mcp
+  tags:
+  - Agent Commerce
+  - MCP
+  - UCP
+  - Shopify
+  properties:
+  - type: MCPServer
+    url: mcp/molekule-mcp.yml
+  - type: Authentication
+    url: authentication/molekule-authentication.yml
+  - type: OAuthScopes
+    url: scopes/molekule-scopes.yml
+  - type: Conformance
+    url: conformance/molekule-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +76,30 @@ maintainers:
 common:
 - type: Website
   url: https://molekule.com
+- type: MCPServer
+  url: mcp/molekule-mcp.yml
+- type: LLMsTxt
+  url: llms/molekule-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/molekule-well-known.yml
+- type: Authentication
+  url: authentication/molekule-authentication.yml
+- type: OpenIDConnect
+  url: well-known/molekule-openid-configuration.json
+- type: OAuthScopes
+  url: scopes/molekule-scopes.yml
+- type: Conformance
+  url: conformance/molekule-conformance.yml
+- type: DomainSecurity
+  url: security/molekule-domain-security.yml
+- type: PrivacyPolicy
+  url: https://molekule.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://molekule.com/policies/terms-of-service
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1
