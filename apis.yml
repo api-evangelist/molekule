@@ -52,6 +52,15 @@ tags:
 - Air Quality
 - Consumer IoT
 - E-Commerce
+- Agentic Commerce
+- MCP
+- Shopify
+tags_raw:
+- Company
+- Hardware
+- Air Quality
+- Consumer IoT
+- E-Commerce
 - Agent Commerce
 - MCP
 - Shopify
@@ -66,6 +75,11 @@ apis:
   humanURL: https://molekule.com/agents.md
   baseURL: https://molekule.com/api/ucp/mcp
   tags:
+  - Agentic Commerce
+  - MCP
+  - Universal Commerce Protocol
+  - Shopify
+  tags_raw:
   - Agent Commerce
   - MCP
   - UCP
