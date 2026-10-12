@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/molekule/integrations
+- https://n8n.io/integrations/molekule/
+- https://composio.dev/toolkits/molekule
+- https://monid.ai/tools/molekule
+checked:
+- https://composio.dev/toolkits/molekule
+- https://monid.ai/tools/molekule
+- https://n8n.io/integrations/molekule/
+- https://zapier.com/apps/molekule/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
